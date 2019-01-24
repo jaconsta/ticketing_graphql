@@ -5,6 +5,15 @@ const {
   GraphQLInputObjectType
 } = require('graphql')
 
+const RegisterInputType = new GraphQLInputObjectType({
+  name: 'InputRegisterUser',
+  fields: {
+    name: { type: GraphQLNonNull(GraphQLString) },
+    email:  { type: GraphQLNonNull(GraphQLString) },
+    password:  { type: GraphQLNonNull(GraphQLString) }
+  }
+})
+
 const AddUserInputType = new GraphQLInputObjectType({
   name: 'InputAddUser',
   fields: {
@@ -14,5 +23,6 @@ const AddUserInputType = new GraphQLInputObjectType({
 })
 
 module.exports = {
-  AddUserInputType
+  AddUserInputType,
+  RegisterInputType
 }

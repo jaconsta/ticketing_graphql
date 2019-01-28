@@ -7,6 +7,7 @@ const UserModel = require('../../../models/User')
 
 const type = new GraphQLList(UserType)
 const resolve = (root, params, options) => {
+  console.log('resolve')
   return UserModel.find().exec()
 }
 

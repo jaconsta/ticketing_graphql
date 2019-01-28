@@ -1,6 +1,6 @@
 const app =  require('./app')
 
-const databaseConnection = require('./models/connection')
+const {connection : databaseConnection} = require('./models/connection')
 const graphqlApi = require('./graphql')
 const {
   PORT,

@@ -1,8 +1,5 @@
 const NodeEnvironment = require('jest-environment-node');
-
-const {connection : databaseConnection, disconnect : databaseDisconnect} = require('./../models/connection')
 const path = require('path');
-
 const fs = require('fs');
 
 const globalConfigPath = path.join(__dirname, 'globalConfig.json');
@@ -20,14 +17,11 @@ class MongoEnvironment extends NodeEnvironment {
     this.global.__MONGO_URI__ = globalConfig.mongoUri;
     this.global.__MONGO_DB_NAME__ = globalConfig.mongoDBName;
 
-    await databaseConnection(this.global.__MONGO_URI__)
-
     await super.setup();
   }
 
   async teardown() {
     console.log('Teardown MongoDB Test Environment');
-    await databaseDisconnect()
     await super.teardown();
   }
 

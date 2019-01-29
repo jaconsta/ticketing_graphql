@@ -79,6 +79,9 @@ module.exports = {
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
+  moduleNameMapper: {
+    "^mongoose$": "<rootDir>/node_modules/mongoose"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -103,7 +106,7 @@ module.exports = {
 
   // Reset the module registry before running each individual test
   // resetModules: false,
-  resetModules: true,
+  resetModules: false,
 
   // A path to a custom resolver
   // resolver: null,
@@ -133,7 +136,6 @@ module.exports = {
 
   // The test environment that will be used for testing
   // testEnvironment: "node",
-  // testEnvironment: "<rootDir>/src/test/environment/mongodb",
   testEnvironment: "<rootDir>/src/test/mongo-environment",
 
   // Options that will be passed to the testEnvironment

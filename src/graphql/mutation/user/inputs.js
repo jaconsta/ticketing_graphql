@@ -22,7 +22,17 @@ const AddUserInputType = new GraphQLInputObjectType({
   }
 })
 
+const LoginInputType = new GraphQLInputObjectType({
+  name: 'InputLoginUser',
+  fields: {
+    email:  { type: GraphQLNonNull(GraphQLString) },
+    password:  { type: GraphQLNonNull(GraphQLString) }
+  }
+})
+
+
 module.exports = {
   AddUserInputType,
-  RegisterInputType
+  RegisterInputType,
+  LoginInputType
 }

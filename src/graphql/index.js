@@ -8,10 +8,16 @@ const shouldEnableGraphiQl = () => {
   return NODE_ENV != 'production'
 }
 
-const graphqlApi = graphqlHTTP({
-  schema,
-  // rootValue,
-  graphiql: shouldEnableGraphiQl()
+const context = request => {
+  user: request.user
+}
+const graphqlApi = graphqlHTTP(request => {
+  return {
+    schema,
+    // rootValue,
+    graphiql: shouldEnableGraphiQl(),
+    context: context(request)
+  }
 })
 
 module.exports = graphqlApi
